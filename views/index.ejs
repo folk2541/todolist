@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todolist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1><%= workTitle %></h1>
+
+      <div class="container-list">
+        <ul class="list">
+          <% workItems.forEach(function(item) { %>
+          <form action="/delete" method="post">
+            <li>
+              <input onChange="this.form.submit()" type="checkbox" />
+              <input
+                type="hidden"
+                name="workTopicDelete"
+                value="<%= workTitle %>"
+              />
+              <input type="hidden" name="workListDelete" value="<%= item %>" />
+              <label><%=item%></label>
+            </li>
+          </form>
+          <% }) %>
+        </ul>
+
+        <form action="/" method="post">
+          <label>Your list:</label>
+          <input class="text-input" type="text" name="listItem" />
+          <input type="hidden" name="workTitle" value="<%= workTitle %>" />
+          <button type="submit">ADD</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
