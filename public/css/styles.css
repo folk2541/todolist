@@ -8,7 +8,6 @@ body {
   font-family: "Rubik", sans-serif;
 }
 .container {
-  width: 1300px;
   margin: 0 auto;
   text-align: center;
 }
@@ -28,7 +27,8 @@ li {
 }
 .container-list {
   background-color: white;
-  width: 400px;
+  max-width: 400px;
+  width: 80%;
   margin: 0 auto;
   padding: 12px;
   border-radius: 9px;
