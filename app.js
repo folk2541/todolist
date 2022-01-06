@@ -1,9 +1,10 @@
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 mongoose.connect(
-  "mongodb+srv://folk2541:019968078@cluster0.bn4cc.mongodb.net/Todolist?retryWrites=true&w=majority"
+  "mongodb+srv://folk2541:"+process.env.MY_KEY+"@cluster0.bn4cc.mongodb.net/Todolist?retryWrites=true&w=majority"
 );
 const app = express();
 const listSchema = new mongoose.Schema({
